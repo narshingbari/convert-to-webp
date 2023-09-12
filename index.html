@@ -2,12 +2,50 @@
 <html dir='ltr' lang='en-US' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 
 <head>
+      <script>
+    var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+    if (navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN || Event.MOUSEUP);
+
+    function mischandler() {
+      return false;
+    }
+
+    function mousehandler(e) {
+      var myevent = (isNS) ? e : event;
+      var eventbutton = (isNS) ? myevent.which : myevent.button;
+      if ((eventbutton == 2) || (eventbutton == 3)) return false;
+    }
+    document.oncontextmenu = mischandler;
+    document.onmousedown = mousehandler;
+    document.onmouseup = mousehandler;
+  </script>
+  <script type="text/JavaScript">
+    function killCopy(e){
+      return false
+    }
+    function reEnable(){
+      return true
+    }
+    document.onselectstart=new Function ("return false")
+    if (window.sidebar){
+      document.onmousedown=killCopy
+      document.onclick=reEnable
+    }
+  </script>
+  <script>
+    document.addEventListener("keydown", (e) => {
+      if (e.ctrlKey || e.keyCode==123) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    });
+  </script>
     <meta charset='UTF-8' />
     <title>Online Image Converter Free</title>
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
     <meta content='Easily convert and transform images online with our user-friendly image converter tool. Convert between various formats quickly and effortlessly.' name='description' />
-    <meta content='Narshingbari online image converter, image conversion, image format conversion, convert images online' name='keywords' />
-    <meta content='Your Name' name='author' />
+    <meta content='Narshingbari online free image converter, image conversion, image format conversion, convert images online' name='keywords' />
+    <meta content='Saddam Hussain of Narshingbari' name='author' />
     <link href='./icon.png'
         rel='icon' type='image/x-icon' />
     <style id='page-skin-1' type='text/css'>
